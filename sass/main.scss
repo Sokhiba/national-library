@@ -1,0 +1,56 @@
+$main-color:green;
+
+
+@mixin soya($x, $y, $blur, $rang){
+    box-shadow: 0$x 0$y $blur$rang;
+    -webkit-box-shadow: $x $y 10px $blur $rang;
+    -moz-box-shadow: $x $y 10px $blur $rang;
+    -o-box-shadow: $x $y 10px $blur $rang;
+}
+
+body{
+   background: {
+       size: 100%;
+       image: url("https://picsum.photos/2000");
+       repeat: no-repeat;
+       position: center;
+
+   };
+    .container{
+        margin-top: 3rem;
+        .row{
+            .col-4{
+                .card{
+                    margin: {
+                        left: 10px;
+                        right: 20px;
+                        top: 30px;
+                        bottom: 50px;
+                    };
+                    &:hover{
+                        @include soya(0, 0, 10px, green);
+                    }
+                    .card-header{
+                        padding: 15px;
+                        h3{
+                            color: $main-color;
+                        }
+                    }
+                    .card-body{
+                      p{
+                        color: $main-color;
+                       }
+                    }
+                    .card-footer{
+                        button{
+                            
+                                @include soya( 1px, 1px, 5px, yellow);
+                            }
+                      
+                        }
+                       
+                    }
+                }
+            }
+        }
+    }
